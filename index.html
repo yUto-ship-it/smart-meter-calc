@@ -424,6 +424,7 @@
             let housetype = document.querySelector("input[name='house']:checked").value;
             let right = document.getElementById('right');
             let left = document.getElementById('left');
+            let lefts =document.getElementById('lefts');
             let fees = 500;
 
             if (unit.includes("-") || units === "" || units == 0 || isNaN(units)) {
@@ -508,7 +509,7 @@
                     left.style.display = 'block';
                 }
                 result.style.display = "block";
-                right.style.display = "noen";
+                right.style.display = "none";
                 left.style.display = "block";
             } else {
                 nonhouses();
@@ -517,6 +518,9 @@
                 document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks"
                 document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                 document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
+                result.style.display = "block";
+                right.style.display = "none";
+                lefts.style.display = "block";
 
             }
         }
@@ -628,8 +632,8 @@
             }
         }
         function nonhouses() {
-            let tables = document.getElementById('lefts');
-            tables.style.display = 'block';
+            let tablea = document.getElementById('lefts');
+            tablea.style.display = 'block';
             let lunit = document.getElementById('lunita');
             let input = document.getElementById('unit').value;
             let inputs = Number(input);
