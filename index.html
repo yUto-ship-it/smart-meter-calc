@@ -209,11 +209,7 @@
             color: #667eea;
         }
 
-        .my-custom-alert {
-            width: 30%;
-            height: 50%;
-            font-size: 0.4rem;
-        }
+        
     </style>
 
 </head>
@@ -242,7 +238,7 @@
                 </div>
                 <div>
                     <input type="radio" name="house" id="special" value="nhs"><label
-                        for="nonhouse">သီးခြားဓာတ်အားလိုင်း</label>
+                        for="special">သီးခြားဓာတ်အားလိုင်း</label>
                 </div>
             </div>
             <button id="btn" onclick="calculate()">တွက်ချက်မည်</button>
@@ -450,36 +446,32 @@
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks";
                     document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'block';
-                    left.style.display = 'none';
+                    
                 } else if (units <= 100) {
                     bill = (50 * 50) + (units - 50) * 100
                     bills = Math.round(bill, 2);
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks"
                     document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'block';
-                    left.style.display = 'none';
+                    
                 } else if (units <= 200) {
                     bill = (50 * 50) + (50 * 100) + (units - 100) * 150
                     bills = Math.round(bill, 2);
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks";
                     document.getElementById('outUnit').innerHTML = unit.toLocaleString() + "Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'block';
-                    left.style.display = 'none';
+                    
                 } else {
                     bill = (50 * 50) + (50 * 100) + (100 * 150) + ((units - 200) * 300)
                     bills = Math.round(bill, 2);
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks";
                     document.getElementById('outUnit').innerHTML = unit.toLocaleString() + "Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'block';
-                    left.style.display = 'none';
                 }
                 result.style.display = "block";
                 right.style.display = "block";
                 left.style.display = "none";
+                lefts.style.display = "none";
             } else if (housetype === "nh") {
                 nonhouse();
 
@@ -489,28 +481,25 @@
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks"
                     document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'none';
-                    left.style.display = 'block';
+                    
                 } else if (units <= 20000) {
                     bill = (5000 * 250) + (units - 5000) * 400
                     bills = Math.round(bill, 2);
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks"
                     document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'none';
-                    left.style.display = 'block';
+                    
                 } else {
                     bill = (5000 * 250) + (15000 * 400) + (units - 20000) * 500
                     bills = Math.round(bill, 2);
                     document.getElementById('outCost').innerHTML = bills.toLocaleString() + "Ks"
                     document.getElementById('outUnit').innerText = unit.toLocaleString() + " Units";
                     document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
-                    right.style.display = 'none';
-                    left.style.display = 'block';
                 }
                 result.style.display = "block";
                 right.style.display = "none";
                 left.style.display = "block";
+                lefts.style.display = "none";
             } else {
                 nonhouses();
                 bill = units * 900;
@@ -520,6 +509,7 @@
                 document.getElementById('outTotal').innerHTML = (bills + fees).toLocaleString() + "Ks";
                 result.style.display = "block";
                 right.style.display = "none";
+                left.style.display = "none";
                 lefts.style.display = "block";
 
             }
